@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/shopoperation2.css}" />
+<!--     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  -->
+
+    <!-- Include the jQuery Toast Plugin CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css">
+
+    <!-- Include the jQuery Toast Plugin JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+
+	<title>Register Shop</title>
+
+
+</head>
+
+
+<body>
+<div class="page-group">
+    <div id="page-label-input" class="page">
+<!--         <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left back"
+               href="/demos/form"> <span class="icon icon-left"></span> Return
+            </a>
+            <h1 class="title">CREATE YOUR SHOP</h1>
+        </header> -->
+        <div class="content">
+            <div class="list-block">
+                <ul>
+                    <!-- shop name text -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Shop Name</div>
+                                <div class="item-input">
+                                    <input type="text" id="shop-name" placeholder="Shop Name">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- shop category drop-down select -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Shop Category</div>
+                                <div class="item-input">
+                                    <select id="shop-category">
+
+<!--                                        <option>test_val_1</option>-->
+<!--                                        <option>test2_val_2</option>-->
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- area drop-down select -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Area</div>
+                                <div class="item-input">
+                                    <select id="area">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- address text -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Address</div>
+                                <div class="item-input">
+                                    <input type="text" id="shop-addr" placeholder="Address">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- contact text -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Phone</div>
+                                <div class="item-input">
+                                    <input type="text" id="shop-phone" placeholder="Phone">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- image file-upload -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Image</div>
+                                <div class="item-input">
+                                    <input type="file" id="shop-img">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- description textarea -->
+                    <li class="align-top">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">Shop Description</div>
+                                <div class="item-input">
+                                    <textarea id="shop-desc" placeholder="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+<!--                    &lt;!&ndash; 验证码 captcha &ndash;&gt;-->
+<!--                    <li>-->
+<!--                        <div class="item-content">-->
+<!--                            <div class="item-inner">-->
+<!--                                <div class="item-title label">验证码</div>-->
+<!--                                <input type="text" id="j_captcha" placeholder="验证码">-->
+<!--                                <div class="item-input">-->
+<!--                                    <img id="captcha_img" alt="点击更换" title="点击更换"-->
+<!--                                         onclick="changeVerifyCode(this)" src="../Kaptcha" />-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </li>-->
+                </ul>
+            </div>
+            <!-- two buttons -->
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50">
+                        <a href="#" class="button button-big button-fill button-danger">Return</a>
+                    </div>
+                    <div class="col-50">
+                        <a href="#" class="button button-big button-fill button-success"
+                           id="submit">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+	<script src="/js/shopoperation.js"></script>
+
+</body>
+</html>

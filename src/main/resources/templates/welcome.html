@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Welcome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/w3.css}">
+  <style>
+    body {font-family: "Raleway", sans-serif}
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "Playfair Display";
+      letter-spacing: 5px;
+    }
+    .table-container {
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Raleway", sans-serif;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function () {
+	  $("#view-shop").click(function () {
+	    var userId = $(this).data("userId"); // Get the userId from the data-user-id attribute
+	    console.log("userId:", userId);
+	    $.getJSON("/getshopbyuser", { userId: userId }, function (data) {
+	      // Handle the fetched shop details here
+	      if (data) {
+	        console.log(data);
+	        var tableBody = $("#shop-table tbody");
+
+	        // Clear any existing rows in the table body
+	        tableBody.empty();
+	        data.forEach(function (shop) {
+	        	
+	           if (!shop.shopCategory) {
+	        		    console.error("shopCategory is undefined for shop:", shop);}
+	        	  
+	            var row = $("<tr></tr>");
+	            row.append($("<td></td>").text(shop.shopName));
+	            row.append($("<td></td>").text(shop.area.areaName));
+	            row.append($("<td></td>").text(shop.shopAddr));
+	            row.append($("<td></td>").text(shop.shopCategory.shopCategoryName));
+	            row.append($("<td></td>").text(shop.owner.name));
+	            row.append($("<td></td>").text(shop.phone));
+
+	            tableBody.append(row);
+	          });
+	        } else {
+	          console.log("No shop data found for userId:", userId);
+	        }
+	    });
+	  });
+	  
+	    $("#logout").click(function () {
+	        // Redirect to the main page
+	        window.location.href = "/main";
+	      });
+	    
+	});
+  </script>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Welcome!</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a th:href="@{/shopoperation}" class="w3-bar-item w3-button">Create Shop</a>
+      <a href="#" id="view-shop" th:attr="data-user-id=${session.userId}" class="w3-bar-item w3-button">View Shop</a>
+      <a href="#" id="logout" class="w3-bar-item w3-button">Log Out</a>
+    </div>
+  </div>
+</div> 
+
+  <BR>
+  <BR>
+
+
+  <!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:2000px;min-width:200px" id="home">
+  <img class="w3-image" src="/images/welcome.jpeg" alt="welcome page" width="2000" height="200">
+</header>
+  
+  <BR>
+  <BR>
+  <BR>
+
+
+<div class="w3-container w3-content w3-center">
+  <h2>My Shop</h2>
+  <div class="table-container">
+    <table id="shop-table">
+      <thead>
+        <tr>
+          <th>Shop Name</th>
+          <th>Shop Area</th>
+          <th>Shop Address</th>
+          <th>Shop Category</th>
+          <th>Shop Owner Name</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table rows will be inserted here via JavaScript -->
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+
+</body>
+</html>
+
