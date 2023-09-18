@@ -8,7 +8,9 @@ An online store web application based on the model-view-controller(MVC) concept.
 - [x] Account login and logout
 - [x] Add/remove shops
 - [x] Modify shop info
-- [x] Query and update products
+- [x] Upload images and add a watermark
+- [x] Browser product by category
+- [x] Update product info
 - [x] Update user profile
 
 
