@@ -1,6 +1,6 @@
 # Online Store
 
-An online store web app based on the model-view-controller(MVC) concept. 
+An online store web application based on the model-view-controller(MVC) concept. 
 
 ## Features
 
